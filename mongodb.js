@@ -28,27 +28,99 @@ client.connect()
         const usersCollection = db.collection("users");
         const tasksCollection = db.collection("tasks");
         
-        tasksCollection.findOne({ _id : new ObjectId("661a76537e4ce2a2d309efab") })
-        .then((document) =>
+        usersCollection.deleteMany(
+            {
+                age : {
+                    $lte : 60
+                }
+            }
+        )
+        .then((result) =>
         {
-            console.log(document);
+            console.log(result);
         })
         .catch((error) =>
         {
-            console.log("Unable to fetch!!");
+            console.log(error);
         });
         
-        tasksCollection.find({ completed : false }).toArray()
-        .then((documents) =>
+        tasksCollection.deleteOne(
+            {
+                description : "Clean the house"
+            }
+        )
+        .then((result) =>
         {
-            console.log(documents);
+            console.log(result);
         })
         .catch((error) =>
         {
-            console.log("Unable to fetch!!");
+            console.log(error);
         });
         
-        // usersCollection.findOne({ _id : new ObjectId("661a7951978b9025ea8763b9") })
+        // usersCollection.updateOne(
+        //     {
+        //         _id : new ObjectId("661a7951978b9025ea8763b9")
+        //     },
+        //     {
+        //         $set : {
+        //             name : "Vikrant",
+        //             age : 42
+        //         }
+        //     }
+        // )
+        // .then((result) =>
+        // {
+        //     console.log(result);
+        // })
+        // .catch((error) =>
+        // {
+        //     console.log(error);
+        // });
+        
+        // usersCollection.updateOne(
+        //     {
+        //         _id : new ObjectId("661a7951978b9025ea8763b9")
+        //     },
+        //     {
+        //         $inc : {
+        //             age : -16
+        //         }
+        //     }
+        // )
+        // .then((result) =>
+        // {
+        //     console.log(result);
+        // })
+        // .catch((error) =>
+        // {
+        //     console.log(error);
+        // });
+        
+        // tasksCollection.updateMany(
+        //     {
+        //         completed : false
+        //     },
+        //     {
+        //         $set : {
+        //             completed : true
+        //         }
+        //     }
+        // )
+        // .then((result) =>
+        // {
+        //     console.log(result);
+        // })
+        // .catch((error) =>
+        // {
+        //     console.log(error);
+        // });
+        
+        // tasksCollection.findOne(
+        //     {
+        //         _id : new ObjectId("661a76537e4ce2a2d309efab")
+        //     }
+        // )
         // .then((document) =>
         // {
         //     console.log(document);
@@ -58,7 +130,11 @@ client.connect()
         //     console.log("Unable to fetch!!");
         // });
         
-        // usersCollection.find({ age : 32 }).toArray()
+        // tasksCollection.find(
+        //     {
+        //         completed : false
+        //     }
+        // ).toArray()
         // .then((documents) =>
         // {
         //     console.log(documents);
@@ -68,7 +144,39 @@ client.connect()
         //     console.log("Unable to fetch!!");
         // });
         
-        // usersCollection.find({ age : 32 }).count()
+        // usersCollection.findOne(
+        //     {
+        //         _id : new ObjectId("661a7951978b9025ea8763b9")
+        //     }
+        // )
+        // .then((document) =>
+        // {
+        //     console.log(document);
+        // })
+        // .catch((error) =>
+        // {
+        //     console.log("Unable to fetch!!");
+        // });
+        
+        // usersCollection.find(
+        //     {
+        //         age : 32
+        //     }
+        // ).toArray()
+        // .then((documents) =>
+        // {
+        //     console.log(documents);
+        // })
+        // .catch((error) =>
+        // {
+        //     console.log("Unable to fetch!!");
+        // });
+        
+        // usersCollection.find(
+        //     {
+        //         age : 32
+        //     }
+        // ).count()
         // .then((count) =>
         // {
         //     console.log(count);
@@ -84,7 +192,8 @@ client.connect()
         //         name : "Vikram",
         //         age : 32
         //     }
-        // ).then((result) =>
+        // )
+        // .then((result) =>
         // {
         //     console.log(result);
         // })
@@ -128,8 +237,8 @@ client.connect()
         //         description : "Pot plants",
         //         completed : false
         //     }
-        // ]
-        // ).then((result) =>
+        // ])
+        // .then((result) =>
         // {
         //     console.log(result);
         // })
