@@ -28,6 +28,56 @@ client.connect()
         const usersCollection = db.collection("users");
         const tasksCollection = db.collection("tasks");
         
+        tasksCollection.findOne({ _id : new ObjectId("661a76537e4ce2a2d309efab") })
+        .then((document) =>
+        {
+            console.log(document);
+        })
+        .catch((error) =>
+        {
+            console.log("Unable to fetch!!");
+        });
+        
+        tasksCollection.find({ completed : false }).toArray()
+        .then((documents) =>
+        {
+            console.log(documents);
+        })
+        .catch((error) =>
+        {
+            console.log("Unable to fetch!!");
+        });
+        
+        // usersCollection.findOne({ _id : new ObjectId("661a7951978b9025ea8763b9") })
+        // .then((document) =>
+        // {
+        //     console.log(document);
+        // })
+        // .catch((error) =>
+        // {
+        //     console.log("Unable to fetch!!");
+        // });
+        
+        // usersCollection.find({ age : 32 }).toArray()
+        // .then((documents) =>
+        // {
+        //     console.log(documents);
+        // })
+        // .catch((error) =>
+        // {
+        //     console.log("Unable to fetch!!");
+        // });
+        
+        // usersCollection.find({ age : 32 }).count()
+        // .then((count) =>
+        // {
+        //     console.log(count);
+        // })
+        // .catch((error) =>
+        // {
+        //     console.log("Unable to fetch!!");
+        // });
+        
         // usersCollection.insertOne(
         //     {
         //         _id : id,
@@ -54,8 +104,8 @@ client.connect()
         //         name : "Mihir",
         //         age : 62
         //     }
-        // ]
-        // ).then((result) =>
+        // ])
+        // .then((result) =>
         // {
         //     console.log(result);
         // })
