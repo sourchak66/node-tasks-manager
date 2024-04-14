@@ -130,33 +130,33 @@ client.connect()
         //     console.log("Unable to fetch!!");
         // });
         
-        // tasksCollection.find(
-        //     {
-        //         completed : false
-        //     }
-        // ).toArray()
-        // .then((documents) =>
-        // {
-        //     console.log(documents);
-        // })
-        // .catch((error) =>
-        // {
-        //     console.log("Unable to fetch!!");
-        // });
+        tasksCollection.find(
+            {
+                completed : false
+            }
+        ).toArray()
+        .then((documents) =>
+        {
+            console.log(documents);
+        })
+        .catch((error) =>
+        {
+            console.log("Unable to fetch!!");
+        });
         
-        // usersCollection.findOne(
-        //     {
-        //         _id : new ObjectId("661a7951978b9025ea8763b9")
-        //     }
-        // )
-        // .then((document) =>
-        // {
-        //     console.log(document);
-        // })
-        // .catch((error) =>
-        // {
-        //     console.log("Unable to fetch!!");
-        // });
+        usersCollection.findOne(
+            {
+                _id : new ObjectId("661a7951978b9025ea8763b9")
+            }
+        )
+        .then((document) =>
+        {
+            console.log(document);
+        })
+        .catch((error) =>
+        {
+            console.log("Unable to fetch!!");
+        });
         
         // usersCollection.find(
         //     {
