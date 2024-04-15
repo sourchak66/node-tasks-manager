@@ -4,14 +4,13 @@ import taskRouter from "./routers/task.js";
 import bcrypt from "bcryptjs";
 import("./db/mongoose.js");
 
-const port = process.env.PORT || 3000;
-
 const app = express();
+
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(userRouter.router);
 app.use(taskRouter.router);
-
 
 app.listen(port, () =>
 {
